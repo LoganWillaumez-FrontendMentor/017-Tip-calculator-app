@@ -4,10 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Frontend Mentor | Tip calculator app</title>
     <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
   </head>
   <body>
+    <div class="container">
+      <main>
+        <section id="bill-container">
+          <h2 class="bill-title">Bill</h2>
+          <input
+            type="text"
+            class="bill"
+            placeholder="$"
+            aria-label="bill ammount"
+          />
+        </section>
+        <section class="tips-ammount">
+          <h2 id="tips-title">Select Tip %</h2>
+          <div id="id-container">
+            <button>5%</button>
+            <button>10%</button>
+            <button>15%</button>
+            <button>25%</button>
+            <button>50%</button>
+            <input type="text" placeholder="Custom" aria-label="custom tips" />
+          </div>
+        </section>
+        <section>
+          <h2 id="NbPeople-title">Number of People</h2>
+          <input
+            type="text"
+            id="nbPeople"
+            placeholder="0"
+            aria-label="number of people"
+          />
+        </section>
+      </main>
+      <aside>
+        <div class="result">
+          <div class="tip-amount">
+            <p class="tip-amount-text">Tip Amount / person</p>
+            <p class="tip-number">$0.00</p>
+          </div>
+          <div class="total">
+            <p class="total-amount-text">Total / person</p>
+            <p class="total-number">$0.00</p>
+          </div>
+        </div>
+        <button id="reset">RESET</button>
+      </aside>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
