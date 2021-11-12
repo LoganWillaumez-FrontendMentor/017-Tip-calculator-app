@@ -1,0 +1,29 @@
+aside {
+  background: #00474b;
+  border-radius: 15px;
+  padding: 37px 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 850px) {
+    padding: 40px;
+    width: 64%;
+  }
+
+  .tip-contain {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .tip-amount {
+    margin-bottom: 20px;
+    @media only screen and (min-width: 850px) {
+      margin-bottom: 25px;
+    }
+  }
+  .total {
+    margin-bottom: 32px;
+    @media only screen and (min-width: 850px) {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -19,47 +19,78 @@
   </head>
   <body>
     <div class="container">
+      <img src="images/logo.svg" alt="" id="logo" aria-hidden="true" />
       <main>
+        <h1></h1>
         <section id="bill-container">
           <h2 class="bill-title">Bill</h2>
-          <input
-            type="text"
-            class="bill"
-            placeholder="$"
-            aria-label="bill ammount"
-          />
+          <div class="input-container bill-input-container">
+            <input
+              type="text"
+              class="input-long bill"
+              placeholder="0"
+              aria-label="bill ammount"
+            />
+            <img
+              src="images/icon-dollar.svg"
+              alt=""
+              class="icon-input dollars-sign"
+            />
+          </div>
         </section>
-        <section class="tips-ammount">
+        <section id="tips-ammount">
           <h2 id="tips-title">Select Tip %</h2>
-          <div id="id-container">
+          <div id="tips-container">
             <button>5%</button>
             <button>10%</button>
             <button>15%</button>
             <button>25%</button>
             <button>50%</button>
-            <input type="text" placeholder="Custom" aria-label="custom tips" />
+            <input
+              type="text"
+              class="custom-tips"
+              placeholder="Custom"
+              aria-label="custom tips"
+            />
           </div>
         </section>
-        <section>
+        <section id="nb-people-container">
           <h2 id="NbPeople-title">Number of People</h2>
-          <input
-            type="text"
-            id="nbPeople"
-            placeholder="0"
-            aria-label="number of people"
-          />
+          <p class="people-error">Can't be zero</p>
+          <div class="input-nbpeople-container">
+            <div class="input-container nbPeople-input-container">
+              <input
+                type="text"
+                id="nbPeople"
+                placeholder="0"
+                aria-label="number of people"
+                class="input-long"
+              />
+              <img
+                src="images/icon-person.svg"
+                alt=""
+                aria-hidden="true"
+                class="icon-input"
+              />
+            </div>
+          </div>
         </section>
       </main>
       <aside>
         <div class="result">
-          <div class="tip-amount">
-            <p class="tip-amount-text">Tip Amount / person</p>
-            <p class="tip-number">$0.00</p>
+          <div class="tip-contain tip-amount">
+            <p class="tip tip-amount-text">
+              Tip Amount <br /><span class="br-text">/ person</span>
+            </p>
+            <p class="number tip-number">$0.00</p>
           </div>
-          <div class="total">
-            <p class="total-amount-text">Total / person</p>
-            <p class="total-number">$0.00</p>
-          </div>
+        </div>
+        <div class="tip-contain total">
+          <p class="tip total-amount-text">
+            Total <br />
+            <span class="br-text">/ person</span>
+          </p>
+          <p class="number total-number">$0.00</p>
         </div>
         <button id="reset">RESET</button>
       </aside>

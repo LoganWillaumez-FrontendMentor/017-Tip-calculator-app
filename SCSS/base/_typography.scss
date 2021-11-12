@@ -1,3 +1,87 @@
-/**
- * Basic typography style for copy text
- */
+.container {
+  h1 {
+    display: none;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5e7a7d;
+    margin-bottom: 6px;
+  }
+  input::placeholder {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: right;
+    color: #00474b;
+    mix-blend-mode: normal;
+    opacity: 0.35;
+  }
+  input.custom-tips::placeholder {
+    color: #547878;
+    opacity: 1;
+    text-align: right;
+    @media only screen and (min-width: 850px) {
+      text-align: center;
+    }
+  }
+  button {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    color: #ffffff;
+    &#reset {
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      color: #00474b;
+    }
+  }
+  .tip {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    @media only screen and (min-width: 850px) {
+      margin-top: 16px;
+    }
+  }
+  .br-text {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    color: #7f9d9f;
+  }
+  .number {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 47px;
+    text-align: right;
+    letter-spacing: -0.666667px;
+    color: #26c2ae;
+    @media only screen and (min-width: 850px) {
+      font-size: 48px;
+      line-height: 71px;
+      letter-spacing: -1px;
+    }
+  }
+  #bill-container {
+    aside {
+      #reset {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        color: #00474b;
+      }
+    }
+  }
+  #tips-ammount {
+    h2 {
+      margin-bottom: 16px;
+    }
+  }
+  .people-error {
+    display: none;
+  }
+}

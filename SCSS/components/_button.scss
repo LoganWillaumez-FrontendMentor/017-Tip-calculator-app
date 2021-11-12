@@ -1,0 +1,12 @@
+button {
+  height: 48px;
+  background: #00474b;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  &#reset {
+    background: #26c2ae;
+    border-radius: 5px;
+    margin-top: auto;
+  }
+}

@@ -1,0 +1,29 @@
+main {
+  padding: 0 8px 0 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  @media only screen and (min-width: 850px) {
+    row-gap: 40px;
+    padding: 13px 0px 16px 0px;
+  }
+  #tips-ammount {
+    #tips-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16.56px;
+      row-gap: 16px;
+      @media only screen and (min-width: 850px) {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 14px;
+      }
+    }
+  }
+  input.custom-tips {
+    padding-right: 17px;
+    @media only screen and (min-width: 850px) {
+      padding: 0;
+    }
+  }
+}
