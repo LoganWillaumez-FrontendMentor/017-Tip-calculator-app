@@ -33,6 +33,11 @@ body {
 }
 @media only screen and (min-width: 850px) {
   body {
+    padding-top: 180px;
+  }
+}
+@media only screen and (min-width: 850px) and (min-height: 780px) {
+  body {
     align-items: center;
     padding-top: 66px;
   }
