@@ -3,10 +3,19 @@ button {
   background: #00474b;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
   width: 100%;
+  transition: all 150ms ease-in-out;
   &#reset {
-    background: #26c2ae;
+    background: #0d686d;
     border-radius: 5px;
     margin-top: auto;
+    &.active {
+      background: #26c2ae;
+    }
+  }
+  &:hover {
+    background: #9fe8df;
+    transform: scale(1.05);
   }
 }

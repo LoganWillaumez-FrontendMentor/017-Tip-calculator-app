@@ -19,6 +19,10 @@ html {
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   min-height: 100vh;
   background: #c5e4e7;
@@ -76,6 +80,8 @@ body {
   background: #f3f9fa;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
+  transition: transform 150ms ease-in-out;
 }
 .container input.input-long {
   padding-right: 17px;
@@ -95,12 +101,20 @@ body {
 }
 .container .input-container {
   position: relative;
+  transition: transform 150ms ease-in-out;
 }
 .container .input-container .icon-input {
   position: absolute;
   left: 19.26px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.input-container:focus-within,
+.custom-tips:focus {
+  outline: 2px solid #26c2ae;
+  transform: scale(1.02);
+  border-radius: 5px;
 }
 
 * {
@@ -199,12 +213,21 @@ button {
   background: #00474b;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
   width: 100%;
+  transition: all 150ms ease-in-out;
 }
 button#reset {
-  background: #26c2ae;
+  background: #0d686d;
   border-radius: 5px;
   margin-top: auto;
+}
+button#reset.active {
+  background: #26c2ae;
+}
+button:hover {
+  background: #9fe8df;
+  transform: scale(1.05);
 }
 
 aside {
