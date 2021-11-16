@@ -26,6 +26,10 @@
           <h2 class="bill-title">Bill</h2>
           <div class="input-container bill-input-container">
             <input
+              inputmode="numeric"
+              onkeypress="return /[0-9]/i.test(event.key)"
+              maxlength="4"
+              required
               type="text"
               class="input-long bill"
               placeholder="0"
@@ -36,21 +40,25 @@
               alt=""
               class="icon-input dollars-sign"
             />
+            <p class="error-bill">Not a number. Please retry...</p>
           </div>
         </section>
         <section id="tips-ammount">
           <h2 id="tips-title">Select Tip %</h2>
           <div id="tips-container">
-            <button>5%</button>
-            <button>10%</button>
-            <button>15%</button>
-            <button>25%</button>
-            <button>50%</button>
+            <button class="tips tips-button" value="5">5%</button>
+            <button class="tips tips-button" value="10">10%</button>
+            <button class="tips tips-button" value="15">15%</button>
+            <button class="tips tips-button" value="25">25%</button>
+            <button class="tips tips-button" value="50">50%</button>
             <input
               type="text"
-              class="custom-tips"
+              onkeypress="return /[0-9]/i.test(event.key)"
+              class="tips custom-tips"
+              data-type="currency"
+              maxlength="5"
               placeholder="Custom"
-              aria-label="custom tips"
+              aria-label="tips custom tips"
             />
           </div>
         </section>
@@ -62,9 +70,11 @@
               <input
                 type="text"
                 id="nbPeople"
+                maxlength="4"
                 placeholder="0"
                 aria-label="number of people"
-                class="input-long"
+                onkeypress="return /[0-9]/i.test(event.key)"
+                class="input-long people"
               />
               <img
                 src="images/icon-person.svg"

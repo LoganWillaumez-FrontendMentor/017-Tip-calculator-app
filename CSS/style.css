@@ -78,6 +78,7 @@ body {
   width: 100%;
   height: 48px;
   background: #f3f9fa;
+  text-align: right;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -110,10 +111,9 @@ body {
   transform: translateY(-50%);
 }
 
-.input-container:focus-within,
-.custom-tips:focus {
-  outline: 2px solid #26c2ae;
+.input-container:focus-within {
   transform: scale(1.02);
+  outline: 2px solid #26c2ae;
   border-radius: 5px;
 }
 
@@ -130,6 +130,9 @@ body {
   line-height: 24px;
   color: #5e7a7d;
   margin-bottom: 6px;
+}
+.container input {
+  font-size: 24px;
 }
 .container input::placeholder {
   font-weight: bold;
@@ -149,6 +152,9 @@ body {
   .container input.custom-tips::placeholder {
     text-align: center;
   }
+}
+.container input.custom-tips:hover::placeholder, .container input.custom-tips.tips-active, .container input.custom-tips.tips-active::placeholder {
+  color: #ffffff;
 }
 .container button {
   font-weight: bold;
@@ -204,7 +210,12 @@ body {
 .container #tips-ammount h2 {
   margin-bottom: 16px;
 }
-.container .people-error {
+
+.error-bill,
+.people-error {
+  color: #e17457;
+  font-size: 16px;
+  line-height: 24px;
   display: none;
 }
 
@@ -225,9 +236,12 @@ button#reset {
 button#reset.active {
   background: #26c2ae;
 }
-button:hover {
+button:hover, button:focus {
   background: #9fe8df;
   transform: scale(1.05);
+}
+button.tips-active {
+  background-color: #26c2ae;
 }
 
 aside {
@@ -273,6 +287,7 @@ main {
 }
 @media only screen and (min-width: 850px) {
   main {
+    max-width: 379px;
     row-gap: 40px;
     padding: 13px 0px 16px 0px;
   }
@@ -289,7 +304,20 @@ main #tips-ammount #tips-container {
     column-gap: 14px;
   }
 }
+main .custom-tips {
+  text-align: center;
+  transition: all 150ms ease-in-out;
+}
+main .custom-tips.tips-active {
+  background-color: #26c2ae;
+}
+main .custom-tips:hover, main .custom-tips:focus {
+  background: #9fe8df;
+  transform: scale(1.05);
+  color: #ffffff;
+}
 main input.custom-tips {
+  position: relative;
   padding-right: 17px;
 }
 @media only screen and (min-width: 850px) {

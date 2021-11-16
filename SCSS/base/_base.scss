@@ -101,9 +101,8 @@ body {
     }
   }
 }
-.input-container:focus-within,
-.custom-tips:focus {
-  outline: 2px solid #26c2ae;
+.input-container:focus-within {
   transform: scale(1.02);
+  outline: 2px solid #26c2ae;
   border-radius: 5px;
 }

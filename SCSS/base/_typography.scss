@@ -9,6 +9,9 @@
     color: #5e7a7d;
     margin-bottom: 6px;
   }
+  input {
+    font-size: 24px;
+  }
   input::placeholder {
     font-weight: bold;
     font-size: 24px;
@@ -18,12 +21,20 @@
     mix-blend-mode: normal;
     opacity: 0.35;
   }
-  input.custom-tips::placeholder {
-    color: #547878;
-    opacity: 1;
-    text-align: right;
-    @media only screen and (min-width: 850px) {
-      text-align: center;
+  input.custom-tips {
+    &::placeholder {
+      color: #547878;
+      opacity: 1;
+      text-align: right;
+
+      @media only screen and (min-width: 850px) {
+        text-align: center;
+      }
+    }
+    &:hover::placeholder,
+    &.tips-active,
+    &.tips-active::placeholder {
+      color: #ffffff;
     }
   }
   button {
@@ -82,7 +93,11 @@
       margin-bottom: 16px;
     }
   }
-  .people-error {
-    display: none;
-  }
+}
+.error-bill,
+.people-error {
+  color: #e17457;
+  font-size: 16px;
+  line-height: 24px;
+  display: none;
 }

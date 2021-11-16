@@ -14,8 +14,12 @@ button {
       background: #26c2ae;
     }
   }
-  &:hover {
+  &:hover,
+  &:focus {
     background: #9fe8df;
     transform: scale(1.05);
+  }
+  &.tips-active {
+    background-color: #26c2ae;
   }
 }

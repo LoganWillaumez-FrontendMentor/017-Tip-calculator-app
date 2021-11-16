@@ -5,6 +5,7 @@ main {
   row-gap: 32px;
 
   @media only screen and (min-width: 850px) {
+    max-width: 379px;
     row-gap: 40px;
     padding: 13px 0px 16px 0px;
   }
@@ -20,7 +21,21 @@ main {
       }
     }
   }
+  .custom-tips {
+    text-align: center;
+    transition: all 150ms ease-in-out;
+    &.tips-active {
+      background-color: #26c2ae;
+    }
+    &:hover,
+    &:focus {
+      background: #9fe8df;
+      transform: scale(1.05);
+      color: #ffffff;
+    }
+  }
   input.custom-tips {
+    position: relative;
     padding-right: 17px;
     @media only screen and (min-width: 850px) {
       padding: 0;
