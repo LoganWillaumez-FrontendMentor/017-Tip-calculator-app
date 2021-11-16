@@ -99,5 +99,52 @@
   color: #e17457;
   font-size: 16px;
   line-height: 24px;
-  display: none;
+  position: absolute;
+  top: -30px;
+  right: 0;
+  max-height: 0;
+  visibility: hidden;
+  transform-origin: bottom;
+  transform: scale(0);
+  transition: all 250ms ease-in-out;
+  &.error-null {
+    max-height: auto;
+    visibility: visible;
+    transform: scale(1);
+    animation: bounceX 250ms linear 150ms 1 alternate;
+  }
+}
+@keyframes bounceX {
+  0% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+  37% {
+    transform: translateX(5px);
+    timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
 }
