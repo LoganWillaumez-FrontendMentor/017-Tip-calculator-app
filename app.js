@@ -26,9 +26,7 @@ let test = [];
 
 let combineAll = () =>{
     // Allow to moove cursor to the end of the input line
-
     inputMooveCursoToEnd(allInput);
-    
     document.addEventListener('click', combine =>{
     detectInput(inputMain);
     checkTips(tips);
@@ -46,7 +44,6 @@ let inputMooveCursoToEnd = (e) =>{
 e.forEach((elem) =>{
     elem.addEventListener('click', toMoove =>{
                                                    reset = false;
-
     elem.selectionStart = elem.selectionEnd = elem.value.length;
     })
     })
