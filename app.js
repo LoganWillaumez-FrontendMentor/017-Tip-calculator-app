@@ -6,11 +6,11 @@ const inputMain = document.querySelectorAll('.input-long');
 const customTips = document.querySelector('.custom-tips');
 const allInput = document.querySelectorAll('input');
 const active = document.querySelector('.tips-active');
-const errorMessages = document.querySelectorAll('.error-messages');
+const errorMessages = document.querySelectorAll('.input-container');
 const resetBtn = document.querySelector('#reset');
 const totalNum = document.querySelector('.total-number');
     const tipAmountText = document.querySelector('.tip-number');
-const regex=/[^0-9]/g;
+const regex=/,/g;
 let reset = false;
 let tipsValue=0;
 let nbPeople = 0;
@@ -30,10 +30,10 @@ let combineAll = () =>{
     // Allow to moove cursor to the end of the input line
     inputMooveCursoToEnd(allInput);
     document.addEventListener('click', combine =>{
+        console.log(detectInput)
         if (reset != true){
             resetBtn.classList.add('active')
         }
-    
     detectInput(inputMain);
     checkTips(tips);
     totalPerPerson(detectInput(inputMain),checkTips(tips))
@@ -63,16 +63,17 @@ let totalPerPerson = (a,b) => {
     let tipAmount = 0;
     
     if (BoolCustom == false){
-    total = (a+(a/100)*b).toFixed(2);
-    tipAmount = (((a/100)*b)).toFixed(2);
+    total = (a+(a/100)*b);
+    tipAmount = (((a/100)*b));
     }
     else{
-    total =  (a+(b/nbPeople)).toFixed(2);
-    tipAmount = (b/nbPeople).toFixed(2);
+    total =  (a+(b/nbPeople));
+    tipAmount = (b/nbPeople);
     }
+    total = total.toFixed(2);
     if(!isNaN(total) && total != Infinity  ){
         totalNum.textContent=`$${total}`;
-        tipAmountText.textContent=`$${tipAmount}`
+        tipAmountText.textContent=`$${tipAmount}`;
 
     }
     if (reset == true){
@@ -119,7 +120,6 @@ let checkTips = (tipsContainer) =>{
  return tipsValue;
 }
 let detectInput = (a) =>{
-
 for(i=0;i<a.length;i++){
     if((a[i].value =="" || a[i].value ==0) && reset !== true){
         errorMessages[i].classList.add('error-null')
@@ -128,9 +128,8 @@ for(i=0;i<a.length;i++){
         errorMessages[i].classList.remove('error-null')
     }
         if(a[i] === document.activeElement){
-            if (!isNaN(a[i].value)){
-             inputValue.splice(i,1,a[i].value)
-            }
+             inputValue.splice(i,1,parseFloat((a[i].value).replace(',','.')))
+            //  parseFloat((a[i].value).replace(',','.'))a
         }
     }
              nbPeople = inputValue[1]

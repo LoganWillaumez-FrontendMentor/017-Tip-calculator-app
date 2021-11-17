@@ -220,18 +220,21 @@ body {
   position: absolute;
   top: -30px;
   right: 0;
-  max-height: 0;
-  visibility: hidden;
-  transform-origin: bottom;
   transform: scale(0);
+  visibility: hidden;
+  height: 0;
   transition: all 250ms ease-in-out;
 }
-.error-bill.error-null,
-.people-error.error-null {
-  max-height: auto;
+
+.input-container.error-null {
+  animation: bounceX 250ms linear 150ms 1 alternate;
+}
+.input-container.error-null .error-bill,
+.input-container.error-null .people-error {
   visibility: visible;
   transform: scale(1);
-  animation: bounceX 250ms linear 150ms 1 alternate;
+  height: initial;
+  transform: scale(1);
 }
 
 @keyframes bounceX {

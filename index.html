@@ -27,7 +27,7 @@
           <div class="input-container bill-input-container">
             <input
               inputmode="numeric"
-              onkeypress="return /[0-9]/i.test(event.key)"
+              onkeypress="return /[0-9,.]/i.test(event.key)"
               maxlength="4"
               required
               type="text"
@@ -55,6 +55,7 @@
               type="text"
               onkeypress="return /[0-9]/i.test(event.key)"
               class="tips custom-tips"
+              inputmode="numeric"
               data-type="currency"
               maxlength="5"
               placeholder="Custom"
@@ -69,6 +70,7 @@
               <input
                 type="text"
                 id="nbPeople"
+                inputmode="numeric"
                 maxlength="4"
                 placeholder="0"
                 aria-label="number of people"
