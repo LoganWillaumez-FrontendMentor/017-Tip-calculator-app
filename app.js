@@ -113,7 +113,7 @@ let checkTips = (tipsContainer) =>{
                 customTips.value = "$" + customTips.value;
             }
              elem.classList.add('tips-active');
-             tipsValue=elem.value.substring(1);
+             tipsValue=parseFloat(elem.value.substring(1).replace(',','.'));
          })
          }
  })
@@ -129,7 +129,6 @@ for(i=0;i<a.length;i++){
     }
         if(a[i] === document.activeElement){
              inputValue.splice(i,1,parseFloat((a[i].value).replace(',','.')))
-            //  parseFloat((a[i].value).replace(',','.'))a
         }
     }
              nbPeople = inputValue[1]
