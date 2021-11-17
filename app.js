@@ -8,6 +8,8 @@ const allInput = document.querySelectorAll('input');
 const active = document.querySelector('.tips-active');
 const errorMessages = document.querySelectorAll('.error-messages');
 const resetBtn = document.querySelector('#reset');
+const totalNum = document.querySelector('.total-number');
+    const tipAmountText = document.querySelector('.tip-number');
 const regex=/[^0-9]/g;
 let reset = false;
 let tipsValue=0;
@@ -28,11 +30,18 @@ let combineAll = () =>{
     // Allow to moove cursor to the end of the input line
     inputMooveCursoToEnd(allInput);
     document.addEventListener('click', combine =>{
+        if (reset != true){
+            resetBtn.classList.add('active')
+        }
+    
     detectInput(inputMain);
     checkTips(tips);
     totalPerPerson(detectInput(inputMain),checkTips(tips))
     })
      document.addEventListener('keyup', combine =>{  
+     if (reset != true){
+            resetBtn.classList.add('active')
+        }
     detectInput(inputMain);
     checkTips(tips);
     totalPerPerson(detectInput(inputMain),checkTips(tips))
@@ -43,7 +52,7 @@ let combineAll = () =>{
 let inputMooveCursoToEnd = (e) =>{
 e.forEach((elem) =>{
     elem.addEventListener('click', toMoove =>{
-                                                   reset = false;
+         reset = false;
     elem.selectionStart = elem.selectionEnd = elem.value.length;
     })
     })
@@ -52,8 +61,7 @@ e.forEach((elem) =>{
 let totalPerPerson = (a,b) => {
     let total = 0;
     let tipAmount = 0;
-    const totalNum = document.querySelector('.total-number');
-    const tipAmountText = document.querySelector('.tip-number');
+    
     if (BoolCustom == false){
     total = (a+(a/100)*b).toFixed(2);
     tipAmount = (((a/100)*b)).toFixed(2);
@@ -62,10 +70,14 @@ let totalPerPerson = (a,b) => {
     total =  (a+(b/nbPeople)).toFixed(2);
     tipAmount = (b/nbPeople).toFixed(2);
     }
-    if(!isNaN(total) && total != Infinity){
+    if(!isNaN(total) && total != Infinity  ){
         totalNum.textContent=`$${total}`;
         tipAmountText.textContent=`$${tipAmount}`
 
+    }
+    if (reset == true){
+        totalNum.textContent = "$0.00"
+        tipAmountText.textContent = "$0.00"
     }
 }
 
@@ -123,7 +135,6 @@ for(i=0;i<a.length;i++){
     }
              nbPeople = inputValue[1]
              return inputValue[0] / inputValue[1];
-
 }
 
 
@@ -131,11 +142,17 @@ for(i=0;i<a.length;i++){
 
 combineAll();
 resetBtn.addEventListener('click',resetAll = ()=> {
-reset = true;
+    resetBtn.classList.remove('active')
+    reset = true;
+    customTips.value ="";
+    tips.forEach(tips => {
+        tips.classList.remove('tips-active')
+    })
    allInput.forEach((elem) =>{
         elem.value ="";
    })
    errorMessages.forEach((error) =>{
         error.classList.remove('error-null')
    })
+   
 })

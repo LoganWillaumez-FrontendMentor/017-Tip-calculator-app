@@ -285,6 +285,10 @@ button#reset {
 button#reset.active {
   background: #26c2ae;
 }
+button#reset:hover {
+  background: #9fe8df;
+  border-radius: 5px;
+}
 button:hover, button:focus {
   background: #9fe8df;
   transform: scale(1.05);

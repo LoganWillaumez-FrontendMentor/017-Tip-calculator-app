@@ -13,6 +13,10 @@ button {
     &.active {
       background: #26c2ae;
     }
+    &:hover {
+      background: #9fe8df;
+      border-radius: 5px;
+    }
   }
   &:hover,
   &:focus {
