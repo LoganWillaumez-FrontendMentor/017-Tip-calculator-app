@@ -71,6 +71,7 @@ let totalPerPerson = (a,b) => {
     tipAmount = (b/nbPeople);
     }
     total = total.toFixed(2);
+    tipAmount= tipAmount.toFixed(2);
     if(!isNaN(total) && total != Infinity  ){
         totalNum.textContent=`$${total}`;
         tipAmountText.textContent=`$${tipAmount}`;
