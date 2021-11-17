@@ -6,8 +6,10 @@ const inputMain = document.querySelectorAll('.input-long');
 const customTips = document.querySelector('.custom-tips');
 const allInput = document.querySelectorAll('input');
 const active = document.querySelector('.tips-active');
-const errorMessages = document.querySelectorAll('.error-messages')
+const errorMessages = document.querySelectorAll('.error-messages');
+const resetBtn = document.querySelector('#reset');
 const regex=/[^0-9]/g;
+let reset = false;
 let tipsValue=0;
 let nbPeople = 0;
 let inputTotal=0;
@@ -24,13 +26,15 @@ let test = [];
 
 let combineAll = () =>{
     // Allow to moove cursor to the end of the input line
+
     inputMooveCursoToEnd(allInput);
-      document.addEventListener('click', combine =>{
+    
+    document.addEventListener('click', combine =>{
     detectInput(inputMain);
     checkTips(tips);
     totalPerPerson(detectInput(inputMain),checkTips(tips))
     })
-     document.addEventListener('keyup', combine =>{
+     document.addEventListener('keyup', combine =>{  
     detectInput(inputMain);
     checkTips(tips);
     totalPerPerson(detectInput(inputMain),checkTips(tips))
@@ -41,6 +45,8 @@ let combineAll = () =>{
 let inputMooveCursoToEnd = (e) =>{
 e.forEach((elem) =>{
     elem.addEventListener('click', toMoove =>{
+                                                   reset = false;
+
     elem.selectionStart = elem.selectionEnd = elem.value.length;
     })
     })
@@ -53,11 +59,11 @@ let totalPerPerson = (a,b) => {
     const tipAmountText = document.querySelector('.tip-number');
     if (BoolCustom == false){
     total = (a+(a/100)*b).toFixed(2);
-    tipAmount = (((a/100)*b)/nbPeople).toFixed(2);
+    tipAmount = (((a/100)*b)).toFixed(2);
     }
     else{
     total =  (a+(b/nbPeople)).toFixed(2);
-    tipAmount = ((a-b) *nbPeople).toFixed(2);
+    tipAmount = (b/nbPeople).toFixed(2);
     }
     if(!isNaN(total) && total != Infinity){
         totalNum.textContent=`$${total}`;
@@ -70,6 +76,7 @@ let totalPerPerson = (a,b) => {
 let checkTips = (tipsContainer) =>{
  tipsContainer.forEach((elem,i) =>{
          elem.addEventListener('click',log =>{
+             reset = false;
              if(i==5){
                BoolCustom = true;
               }
@@ -103,8 +110,9 @@ let checkTips = (tipsContainer) =>{
  return tipsValue;
 }
 let detectInput = (a) =>{
+
 for(i=0;i<a.length;i++){
-    if(a[i].value =="" || a[i].value ==0){
+    if((a[i].value =="" || a[i].value ==0) && reset !== true){
         errorMessages[i].classList.add('error-null')
     }
     else {
@@ -118,5 +126,19 @@ for(i=0;i<a.length;i++){
     }
              nbPeople = inputValue[1]
              return inputValue[0] / inputValue[1];
+
 }
+
+
+
+
 combineAll();
+resetBtn.addEventListener('click',resetAll = ()=> {
+reset = true;
+   allInput.forEach((elem) =>{
+        elem.value ="";
+   })
+   errorMessages.forEach((error) =>{
+        error.classList.remove('error-null')
+   })
+})
